@@ -1,0 +1,95 @@
+/*
+    CSS Stylesheet for XTENDED
+    Author: Sheldon Codling
+    Description: This stylesheet contains the custom styles for the Xtended shopify theme.
+    Date: March 18th
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --black: #121212;
+    --dark_gray: #373939;
+    --light_gray: #858585;
+    --green: #00FF00;
+}
+
+/* Visibility controls for mobile viewports */
+.mobile {
+    display: inline;
+}
+
+.desktop {
+    display: hidden;
+}
+
+/* main elements */
+body {
+    background-color: var(--dark_gray);
+    color: #fcfcfc;
+}
+
+/* Styles for the header */
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black);
+    height: 4rem;
+    /* height: 10vh; */
+    /* height: 4rem; */
+}
+header #burger {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    /* z-index: 99; */
+}
+header #burger div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    height: 1.25rem;
+}
+header #burger div span {
+    display: block;
+    width: 2rem;
+    height: 0.18rem;
+    background-color: var(--green);
+    border-radius: 99px;
+}
+header a {
+    height: 40%;
+    display: flex;
+    align-items: center;
+}
+header #logo {
+    width: auto;
+    height: 100%;
+}
+
+/* Styles for the index page */
+#carousel {
+    border: 0.25rem solid var(--light_gray);
+    margin: 2rem;
+    height: 23rem;
+}
+
+
+@media screen and (min-width: 360px) {
+    header a {
+        height: 50%;
+    }
+}
