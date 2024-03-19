@@ -10,6 +10,7 @@
 <body>
     {% render 'header.liquid' %}
     {{ content_for_layout }}
+    {% render 'footer.liquid' %}
     {{ 'scripts.js' | asset_url | script_tag }}
 </body>
 </html>
