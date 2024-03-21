@@ -1,0 +1,11 @@
+<h1 id="blog_title">{{ blog.title | capitalize }}</h1>
+
+{% for article in blog.articles %}
+    <div class="blog_container">
+        <a href="{{ article.url }}">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.author }}</p>
+            <div>{{ article.excerpt }}</div>
+        </a>
+    </div>
+{% endfor %}
