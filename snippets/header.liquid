@@ -11,3 +11,14 @@
         <img id="logo" src="{{ 'x1.png' | asset_url }}" width=400/>
     </a>
 </header>
+
+<nav>
+    <div class="mobile">
+        <div id="mobile_nav">
+            <input type="text" id="search" name="search" placeholder="Search">
+            {% for link in linklists.mobile-menu.links -%}
+                {{ link.title | upcase | link_to: link.url }}
+            {%- endfor %}
+        </div>
+    <div>
+</nav>
