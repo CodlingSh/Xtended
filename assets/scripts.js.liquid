@@ -1,0 +1,17 @@
+/*
+    Javascript file for XTENDED
+    Author: Sheldon Codling
+    Website: www.sheldonc.ca
+    Description: This stylesheet contains the custom styles for the Xtended shopify theme.
+    Date: March 18th
+*/
+
+function toggleMobileNav() {
+    let mobileNav = document.getElementById("mobile_nav");
+    console.log("This works!");
+
+    mobileNav.classList.toggle("menu_visible");
+}
+
+document.getElementById("burger").addEventListener("click", toggleMobileNav);
+document.getElementById("close_btn").addEventListener("click", toggleMobileNav);
