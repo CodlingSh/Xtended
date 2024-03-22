@@ -1,6 +1,7 @@
 /*
     CSS Stylesheet for XTENDED
     Author: Sheldon Codling
+    Website: www.sheldonc.ca
     Description: This stylesheet contains the custom styles for the Xtended shopify theme.
     Date: March 18th
 */
@@ -58,6 +59,7 @@ header #burger {
     padding: 0 1rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
     /* z-index: 99; */
 }
 header #burger div {
@@ -89,30 +91,64 @@ header #logo {
     position: fixed;
     display: flex;
     flex-direction: column;
+    padding-top: 3rem; 
     top: 0;
     width: 100%;
     height: 100vh;
     background-color: var(--black);
     z-index: 99;
+    text-align: center;
+    transform: translateX(-100vw);
+    transition: transform 400ms ease-in-out;
+}
+#mobile_nav a {
+    font-family: "Futura";
+    font-size: 1.25rem;
+    color: var(--green);
+    text-decoration: none;
+    padding: 1rem 0;
 }
 #mobile_nav input {
     border: 2px solid var(--green);
-    padding: 0.25rem 0.75rem;
+    padding-left: 3rem;
     border-radius: 99px;
     font-family: "Futura";
+    font-size: 1rem;
     background-image: url("{{ 'search.svg' | asset_url }}");
     background-color: transparent;
     background-repeat: no-repeat;
+    background-size: 1.25rem;
+    background-position: center left 1rem;
     color: var(--gray);
+    height: 2.5rem;
+    width: 80%;
+    margin-left: auto; margin-right: auto;
+    margin-bottom: 1rem;
+}
+#mobile_nav #close_btn {
+    position: absolute;
+    top: 0; right: 0;
+    color: var(--green);
+    width: 3rem; height: 3rem;
+    padding: 0.9rem;
+    cursor: pointer;
+}
+.menu_visible {
+    transform: translateX(0vw) !important;
 }
 
 /* Footer */
 footer {
     display: flex;
+    font-family: "Futura";
     flex-direction: column;
     align-items: center;
     background-color: var(--black);
-    padding: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+footer > *:not(:last-child) {
+    margin-bottom: 1rem;
 }
 footer a {
     height: 1.5rem;
@@ -120,6 +156,19 @@ footer a {
 footer a img {
     height: 100%;
     width: auto;
+}
+footer p {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+footer .icons {
+    display: flex;
+    justify-content: space-between;
+    height: 2.75rem; width: 10rem;
+    margin-bottom: 1rem;
+}
+footer .icons svg {
+    height: 100%;
 }
 
 /* Styles for the index page */
