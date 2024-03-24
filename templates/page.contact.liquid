@@ -10,10 +10,10 @@
         
         {% form 'contact' %}
             {{ form.errors | default_errors }}
-            <input type="text" name="contact[name]" id="name" />  
-            <input type="email" name="contact[email]" id="email" />
-            <input type="text" name="contact[twitter]" id="twitter" />
-            <textarea name="contact[body]" id="message"></textarea>
+            <input type="text" name="contact[name]" id="name"  placeholder="Name"/>  
+            <input type="email" name="contact[email]" id="email"  placeholder="Your email"/>
+            <input type="text" name="contact[twitter]" id="twitter"  placeholder="@"/>
+            <textarea name="contact[body]" id="message" rows=5 placeholder="Message"></textarea>
             <input type="submit" value="Create" />
         {% endform %}        
         
