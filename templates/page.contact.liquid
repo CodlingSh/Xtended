@@ -1,20 +1,20 @@
 <div id="article_container">
     <article>        
-        <div class="page_heading">
+        <div class="page_heading" style="margin-bottom: 0;">
             <h1 class="futura">{{ page.title | upcase }}</h1>
             <h2 class="futura">Send a message for business inquires</h2>
         </div>
-        <div class="page_heading">
-            {{ page.content }}
+        <div id="contact_message">
+            <p>{{ page.content }}</p>
         </div>
-        
+
         {% form 'contact' %}
             {{ form.errors | default_errors }}
             <input type="text" name="contact[name]" id="name"  placeholder="Name"/>  
             <input type="email" name="contact[email]" id="email"  placeholder="Your email"/>
             <input type="text" name="contact[twitter]" id="twitter"  placeholder="@"/>
             <textarea name="contact[body]" id="message" rows=5 placeholder="Message"></textarea>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Send" />
         {% endform %}        
         
     </article>
