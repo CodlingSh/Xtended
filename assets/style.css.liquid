@@ -46,6 +46,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: unset;
 }
 
 input[type="text"], input[type="email"], textarea {
@@ -326,6 +332,24 @@ article {
 article p img {
     width: 100%;
     margin: 1rem 0; 
+}
+article .article_header {
+    color: var(--green);
+    text-align: center;
+}
+article .article_title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+article #article_info {
+    display: flex;
+    justify-content: center;
+    border: 0.125rem solid var(--green);
+    border-left: 0; border-right: 0;
+    color: var(--green);
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    margin: 1rem 0;
 }
 
 /* Pages */
