@@ -2,7 +2,12 @@
 
 <div id="article_container">
     <article>
-        <h2>ARTICLES</h2>
-        {{ article.content }}
+        <h2 class="futura article_header">ARTICLES</h2>
+        <h3 class="futura article_title">{{ article.title }}</h3>
+        <div id="article_info">
+            <p>{{ article.author }}</p>
+            <p>{{ article.published_at | date: '%B %d, %Y' }}</p>
+        </div>
+        <p>{{ article.content }}</p>
     </article>
 </div>
