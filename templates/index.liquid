@@ -7,9 +7,5 @@
         {% for link in linklists.mobile-menu.links -%}
             {{ link.title | upcase | link_to: link.url }}
         {%- endfor %}
-        {% comment %} <a href="">ARTICLES</a> {% endcomment %}
-        {% comment %} <a href="">INTERVIEWS</a> {% endcomment %}
-        {% comment %} <a href="">ABOUT</a> {% endcomment %}
-        {% comment %} <a href="">CONTACT</a> {% endcomment %}
     </div>
 </div>
