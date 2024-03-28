@@ -145,7 +145,7 @@ header #logo {
     padding-top: 3rem; 
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--black);
     z-index: 99;
     text-align: center;
@@ -336,6 +336,7 @@ article p img {
 article .article_header {
     color: var(--green);
     text-align: center;
+    font-size: 0.9rem;
 }
 article .article_title {
     font-size: 1.5rem;
@@ -344,6 +345,7 @@ article .article_title {
 article #article_info {
     display: flex;
     justify-content: center;
+    grid-gap: 2rem;
     border: 0.125rem solid var(--green);
     border-left: 0; border-right: 0;
     color: var(--green);
@@ -370,6 +372,10 @@ article #article_info {
     border-bottom: 0.125rem solid var(--green);
     margin-bottom: 2rem;
 }
+#mobile_nav input {
+    height: 3rem;
+    font-size: 1.5rem;
+}
 #contact_message p {
     max-width: 21rem;
     margin: 0 auto;
@@ -380,5 +386,18 @@ article #article_info {
 @media screen and (min-width: 360px) {
     header a {
         height: 50%;
+    }
+    
+    #carousel {
+        margin: 2rem;
+        margin-bottom: 0;
+    }
+
+    #mobile_nav_buttons {
+        margin: 1.5rem 2rem;
+    }
+    #mobile_nav a {
+        font-size: 2rem;
+        padding: 1rem;
     }
 }
