@@ -1,11 +1,19 @@
-<div id="carousel">
+{% assign carousel_articles = blog.articles | concat: blog.interviews %}
 
-</div>
+<div id="content_container">
+    <div id="carousel">
 
-<div class="mobile">
-    <div id="mobile_nav_buttons">
-        {% for link in linklists.mobile-menu.links -%}
-            {{ link.title | upcase | link_to: link.url }}
-        {%- endfor %}
+    </div>
+
+    <div class="mobile">
+        <div id="mobile_nav_buttons">
+            {% for link in linklists.mobile-menu.links -%}
+                {{ link.title | upcase | link_to: link.url }}
+            {%- endfor %}
+        </div>
     </div>
 </div>
+
+{% for article in "interviews" %}
+    <p>{{ article.title }}</p>
+{% endfor %}
