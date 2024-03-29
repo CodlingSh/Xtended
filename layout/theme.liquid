@@ -9,7 +9,7 @@
 </head>
 <body>
     {% render 'header.liquid' %}
-    {{ content_for_layout }}
+    <main>{{ content_for_layout }}</main>
     {% render 'footer.liquid' %}
     {{ 'scripts.js' | asset_url | script_tag }}
 </body>
