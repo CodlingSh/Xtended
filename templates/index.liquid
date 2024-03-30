@@ -1,8 +1,12 @@
-{% assign carousel_articles = blog.articles | concat: blog.interviews %}
+{% assign group_articles = blogs["articles"].articles | concat: blogs["interviews"].articles %}
+{% assign carousel_articles = group_articles | sort: "published_at" | reverse %}
+
 
 <div id="content_container">
     <div id="carousel">
-
+        {% for article in carousel_articles %}
+            <p>{{ article.published_at }}</p>
+        {%- endfor %} 
     </div>
 
     <div class="mobile">
@@ -13,7 +17,3 @@
         </div>
     </div>
 </div>
-
-{% for article in "interviews" %}
-    <p>{{ article.title }}</p>
-{% endfor %}
