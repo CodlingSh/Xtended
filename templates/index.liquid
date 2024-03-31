@@ -5,7 +5,10 @@
 <div id="content_container">
     <div id="carousel">
         {% for article in carousel_articles %}
-            <p>{{ article.published_at }}</p>
+            <div class="carousel-item">
+                <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}">
+                <p>{{ article.image | image.url }}</p>
+            </div>
         {%- endfor %} 
     </div>
 
