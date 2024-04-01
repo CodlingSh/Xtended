@@ -1,15 +1,23 @@
 {% assign group_articles = blogs["articles"].articles | concat: blogs["interviews"].articles %}
-{% assign carousel_articles = group_articles | sort: "published_at" | reverse %}
+{% assign carousel_articles = group_articles | sort: "published_at" | reverse | slice: 0, 6 %}
 
 
 <div id="content_container">
     <div id="carousel">
+        <div id="slider">
+        {% for _ in (1..2) %}
         {% for article in carousel_articles %}
-            <div class="carousel-item">
-                <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}">
-                <p>{{ article.image | image.url }}</p>
+            <div class="carousel_item">
+                {% comment %} <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}"> {% endcomment %}
+                <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url}}');"></div>
+                <div class="carousel_item_description">
+                    <p>{{ article.title }}</p>
+                    <p class="excerpt">{{ article.excerpt}}</p>
+                </div>
             </div>
-        {%- endfor %} 
+        {%- endfor %}
+        {% endfor %}
+        </div>
     </div>
 
     <div class="mobile">
