@@ -6,12 +6,35 @@
     Date: March 18th
 */
 
+let scrollIndex = 0;
+
 function toggleMobileNav() {
     let mobileNav = document.getElementById("mobile_nav");
     console.log("This works!");
 
     mobileNav.classList.toggle("menu_visible");
 }
+
+function scrollCarousel() {
+    let carousel = document.getElementById("slider");
+    let itemWidth = carousel.children[1].offsetWidth;
+
+    scrollIndex += 1;
+    carousel.style.transform = "translateX(-" + (scrollIndex * itemWidth) + "px)";
+    console.log(scrollIndex);
+    if (scrollIndex > carousel.children.length/2) {
+        scrollIndex = 0;
+        carousel.style.transition = "none";
+        carousel.style.transform = "translateX(-" + (scrollIndex * itemWidth) + "px)";
+        setTimeout(() => {
+            carousel.style.transition = "";
+        }, 100);
+    }
+    
+
+}
+
+setInterval(scrollCarousel, 1000);
 
 document.getElementById("burger").addEventListener("click", toggleMobileNav);
 document.getElementById("close_btn").addEventListener("click", toggleMobileNav);
