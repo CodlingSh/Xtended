@@ -17,30 +17,25 @@ function toggleMobileNav() {
 
 function scrollCarousel() {
     let carousel = document.getElementById("slider");
-    let itemWidth = carousel.children[1].offsetWidth;
+
+    let itemWidth = carousel.children[1].getBoundingClientRect().width;
     let transitionTime = window.getComputedStyle(carousel).getPropertyValue("transition").split(" ")[1].split("s")[0] * 1000;
 
-    console.log("Transition time is: " + transitionTime);
+    carousel.style.transform = "translatex(-" + itemWidth +"px)";
 
-
-
-    scrollIndex += 1;
-
-    carousel.style.transform = "translateX(-" + (scrollIndex * itemWidth) + "px)";
-
-    if (scrollIndex >= carousel.children.length/2) {
+    carousel.addEventListener("transitionend", () => {
+        carousel.appendChild(carousel.children[0]);
+        carousel.style.transition = "none";
+        carousel.style.transform = "translatex(0px)";
         setTimeout(() => {
-            scrollIndex = 0;
-            carousel.style.transition = "none";
-            carousel.style.transform = "translateX(0px)";
-            setTimeout(() => {
-                carousel.style.transition = "";
-            }, 10)
-        }, transitionTime);
-    }
+            carousel.style.transition = "";
+        }, 10);
+    }, {once: true});
+
+    console.log("ligma");
 }
 
-setInterval(scrollCarousel, 4000);
+setInterval(scrollCarousel, 5000);
 
 document.getElementById("burger").addEventListener("click", toggleMobileNav);
 document.getElementById("close_btn").addEventListener("click", toggleMobileNav);
