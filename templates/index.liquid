@@ -3,26 +3,31 @@
 
 
 <div id="content_container">
-    <div id="carousel">
-        <div id="slider">
-        {% for article in carousel_articles %}
-            <div class="carousel_item">
-                {% comment %} <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}"> {% endcomment %}
-                <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url: width: 450}}');"></div>
-                <div class="carousel_item_description">
-                    <p>{{ article.title }}</p>
-                    <p class="excerpt">{{ article.excerpt}}</p>
+        <div id="carousel">
+            <div id="slider">
+            {% for article in carousel_articles %}
+                <div class="carousel_item">
+                    {% comment %} <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}"> {% endcomment %}
+                    <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url: width: 450}}');"></div>
+                    <div class="carousel_item_description">
+                        <p>{{ article.title }}</p>
+                        <p class="excerpt">{{ article.excerpt}}</p>
+                    </div>
                 </div>
+            {% endfor %}
             </div>
-        {% endfor %}
         </div>
-    </div>
 
-    <div class="mobile">
-        <div id="mobile_nav_buttons">
-            {% for link in linklists.mobile-menu.links -%}
-                {{ link.title | upcase | link_to: link.url }}
-            {%- endfor %}
+        <div class="mobile">
+            <div id="mobile_nav_buttons">
+                {% for link in linklists.mobile-menu.links -%}
+                    {{ link.title | upcase | link_to: link.url }}
+                {%- endfor %}
+            </div>
         </div>
-    </div>
 </div>
+
+<aside>
+
+</aside>
+
