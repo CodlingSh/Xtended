@@ -8,7 +8,7 @@
         {% for article in carousel_articles %}
             <div class="carousel_item">
                 {% comment %} <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}"> {% endcomment %}
-                <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url}}');"></div>
+                <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url: width: 450}}');"></div>
                 <div class="carousel_item_description">
                     <p>{{ article.title }}</p>
                     <p class="excerpt">{{ article.excerpt}}</p>
