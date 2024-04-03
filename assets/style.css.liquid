@@ -52,6 +52,12 @@ body {
     font-size: 16px;
 }
 
+main {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-weight: unset;
 }
@@ -432,5 +438,26 @@ article #article_info {
     #mobile_nav a {
         font-size: 1.5rem;
         padding: 1rem;
+    }
+}
+
+
+
+/* Desktop viewport */
+@media screen and (min-width: 1024px) {
+    .desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    main {
+        padding: 0 2rem;
+    }
+
+    #content_container {
+        width: 60%;
     }
 }
