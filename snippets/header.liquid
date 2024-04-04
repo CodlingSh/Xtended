@@ -1,9 +1,11 @@
 <header>
-    <div id="burger">
-        <div>
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="mobile">
+        <div id="burger">
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </div>
 
@@ -35,5 +37,20 @@
                 </div>
             </div>
         </div>
-    <div>
+    </div>
+
+    <div class="desktop">
+        <div id="desktop_nav">
+            <div id="link_container">
+                <div id="left">
+                    <a href="/">HOME</a>
+                    {% for link in linklists.mobile-menu.links | slice: 0, 2 %}
+                        {{ link.title | upcase | link_to: link.url }}
+                    {% endfor %}
+                </div>
+                <div id="right">
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
