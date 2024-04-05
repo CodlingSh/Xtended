@@ -18,7 +18,7 @@
     <div class="mobile">
         <div id="mobile_nav">
             <div id="close_btn"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='#00FF00' stroke-width='20' stroke-linecap='round' stroke-linejoin='round'><line x1="15" y1="15" x2="85" y2="85" /> <line x1="85" y1="15" x2="15" y2="85" /></svg></div>
-            <input type="text" id="search" name="search" placeholder="Search">
+            <input type="text" class="search" name="search" placeholder="Search">
             <a href="/">HOME</a>
             {% for link in linklists.mobile-menu.links -%}
                 {{ link.title | upcase | link_to: link.url }}
@@ -43,12 +43,13 @@
         <div id="desktop_nav">
             <div id="link_container">
                 <div id="left">
-                    <a href="/">HOME</a>
-                    {% for link in linklists.mobile-menu.links | slice: 0, 2 %}
+                    {% for link in linklists.desktop.links | slice: 0, 2 %}
                         {{ link.title | upcase | link_to: link.url }}
                     {% endfor %}
                 </div>
                 <div id="right">
+                    <input type="text" class="search" name="search" placeholder="Search">
+                    <a href="" class="contact_btn">CONTACT</a>
                 </div>
             </div>
         </div>
