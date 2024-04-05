@@ -1,6 +1,7 @@
 {% assign group_articles = blogs["articles"].articles | concat: blogs["interviews"].articles %}
 {% assign carousel_articles = group_articles | sort: "published_at" | reverse | slice: 0, 6 %}
-
+{% assign first_4_articles = blogs["articles"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
+{% assign first_4_interviews = blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 
 <div id="content_container">
         <div id="carousel">
@@ -8,7 +9,7 @@
             {% for article in carousel_articles %}
                 <div class="carousel_item">
                     {% comment %} <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}"> {% endcomment %}
-                    <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url: width: 450}}');"></div>
+                    <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
                     <div class="carousel_item_description">
                         <p>{{ article.title }}</p>
                         <p class="excerpt">{{ article.excerpt}}</p>
@@ -27,7 +28,20 @@
         </div>
 </div>
 
-<aside>
 
+<aside class="desktop">
+    <h4>STORIES</h4>
+    {% for article in first_4_articles %}
+        <div class="aside_post">
+            <img src="{{ article.image | image_url: width: 150, height: 100 }}">
+        </div>
+    {% endfor %}
+    <h4>INTERVIEWS</h4>
+    {% for article in first_4_interviews %}
+        <div class="aside_post">
+            <img src="{{ article.image | image_url: width: 150, height: 100 }}">
+        </div>
+    {% endfor %}
 </aside>
+
 
