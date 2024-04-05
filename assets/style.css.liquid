@@ -39,7 +39,7 @@
 }
 
 .desktop {
-    display: hidden;
+    display: none;
 }
 
 /* main elements */
@@ -177,7 +177,7 @@ header #logo {
     text-decoration: none;
     padding: 0.75rem 0;
 }
-#mobile_nav input {
+#mobile_nav input, #desktop_nav input {
     border: 2px solid var(--green);
     padding-left: 3rem;
     border-radius: 99px;
@@ -201,7 +201,7 @@ header #logo {
     padding: 0.9rem;
     cursor: pointer;
 }
-#mobile_nav #search {
+#mobile_nav .search {
     margin-bottom: 0.25rem;
 }
 #email_list_form_nav {
@@ -237,6 +237,7 @@ header #logo {
 }
 #desktop_nav #link_container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 5rem; width: 100%; max-width: var(--maxSize);
     margin: 0 auto;
@@ -247,7 +248,14 @@ header #logo {
     width: 50%;
 }
 #desktop_nav #link_container #right {
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+#desktop_nav .search {
+    margin-bottom: 0;
+    width: 55%;
 }
 #desktop_nav #link_container a {
     color: var(--green);
@@ -492,16 +500,40 @@ article #article_info {
     }
 
     main {
+        display: flex;
+        justify-content: space-between;
         margin-top: 3rem; margin-bottom: 3rem;
-        padding: 0 1rem;
     }
 
     #content_container {
-        width: 66%;
+        width: 65%;
         margin: 0;
     }
 
     #carousel {
         aspect-ratio: 1.26 / 1;
+        margin-left: 2rem;
+    }
+
+    .contact_btn {
+        background-color: var(--green);
+        color: black !important;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    aside {
+        width: 30%;
+        background-color: black;
+    }
+    aside .aside_post {
+        margin: 2rem 0.5rem;
+    }
+    aside h4 {
+        font-size: 2.5rem;
+        border-bottom: 1px solid var(--green);
+        margin: 1.5rem 0.25rem;
+        padding: 0 1rem 0.5rem;
+        font-family: "Futura";
     }
 }
