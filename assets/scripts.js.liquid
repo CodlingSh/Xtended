@@ -12,7 +12,7 @@ function toggleMobileNav() {
     let mobileNav = document.getElementById("mobile_nav");
     console.log("This works!");
 
-    mobileNav.classList.toggle("menu_visible");
+    mobileNav.classList.toggle("-translate-x-full");
 }
 
 function scrollCarousel() {
@@ -29,7 +29,7 @@ function scrollCarousel() {
         carousel.style.transform = "translatex(0px)";
         setTimeout(() => {
             carousel.style.transition = "";
-        }, 10);
+        }, 1000);
     }, {once: true});
 
     console.log("ligma");

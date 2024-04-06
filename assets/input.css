@@ -1,0 +1,27 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+    font-family: "Futura";
+    src: url("{{ 'Futura_Extra_Black_font.ttf' | asset_url }}") format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.search-box {
+    @apply border-[3px] border-green rounded-full bg-transparent bg-no-repeat px-12 font-futura;
+    background-image: url("{{ 'search.svg' | asset_url }}");
+    background-size: 1.25rem;
+    background-position: center left 1rem;
+}
+
+.email-box {
+    @apply font-futura text-center w-[65%] mx-auto h-8 rounded-lg mb-2 cursor-pointer;
+}
+
+.icons {
+    @apply flex justify-between h-11 w-40 mx-auto my-3;
+}
