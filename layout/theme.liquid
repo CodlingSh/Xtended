@@ -7,7 +7,7 @@
     <title>Xtended</title>
     {{ 'style.css' | asset_url | stylesheet_tag }}
 </head>
-<body>
+<body class="bg-dark-grey text-white">
     {% render 'header.liquid' %}
     <main>{{ content_for_layout }}</main>
     {% render 'footer.liquid' %}
