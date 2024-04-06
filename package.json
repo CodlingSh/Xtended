@@ -1,0 +1,24 @@
+{
+  "name": "xtended",
+  "version": "1.0.0",
+  "description": "Shopify theme for the extended website",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss build -i assets/input.css -o assets/style.css.liquid",
+    "watch": "npx tailwindcss build -i assets/input.css -o assets/style.css.liquid --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodlingSh/Xtended.git"
+  },
+  "author": "Sheldon Codling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodlingSh/Xtended/issues"
+  },
+  "homepage": "https://github.com/CodlingSh/Xtended#readme",
+  "dependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
