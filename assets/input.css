@@ -1,3 +1,11 @@
+/*
+    CSS Stylesheet for XTENDED
+    Author: Sheldon Codling
+    Website: www.sheldonc.ca
+    Description: This stylesheet contains the custom styles for the Xtended shopify theme.
+    Date: March 18th
+*/
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -24,4 +32,18 @@
 
 .icons {
     @apply flex justify-between h-11 w-40 mx-auto my-3;
+}
+
+/* Carousel stuff */
+.carousel {
+    @apply border-[0.25rem] border-light-grey w-full overflow-hidden;
+    aspect-ratio: 0.77 / 1;
+}
+.carousel_item {
+    width: calc(100% / 6);
+    height: 100%;
+}
+
+#mobile_nav_buttons a {
+    @apply font-futura bg-black p-4 text-center
 }
