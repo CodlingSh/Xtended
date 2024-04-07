@@ -1,5 +1,13 @@
 /*
-! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
+    CSS Stylesheet for XTENDED
+    Author: Sheldon Codling
+    Website: www.sheldonc.ca
+    Description: This stylesheet contains the custom styles for the Xtended shopify theme.
+    Date: March 18th
+*/
+
+/*
+    ! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -586,6 +594,10 @@ video {
   z-index: 50;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -599,8 +611,28 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-10 {
@@ -635,8 +667,20 @@ video {
   height: 40%;
 }
 
+.h-\[70\%\] {
+  height: 70%;
+}
+
 .h-full {
   height: 100%;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.\!h-6 {
+  height: 1.5rem !important;
 }
 
 .w-12 {
@@ -645,6 +689,10 @@ video {
 
 .w-8 {
   width: 2rem;
+}
+
+.w-\[600\%\] {
+  width: 600%;
 }
 
 .w-\[80\%\] {
@@ -668,6 +716,10 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -682,6 +734,14 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
 .bg-black {
@@ -699,6 +759,14 @@ video {
   background-color: rgb(0 255 0 / var(--tw-bg-opacity));
 }
 
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -708,12 +776,26 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .pl-4 {
   padding-left: 1rem;
 }
 
 .pt-12 {
   padding-top: 3rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .text-center {
@@ -748,6 +830,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-\[\#000\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .placeholder-\[\#27255c\]::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(39 37 92 / var(--tw-placeholder-opacity));
@@ -764,6 +851,16 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-700 {
+  transition-duration: 700ms;
 }
 
 .duration-\[400ms\] {
@@ -822,7 +919,35 @@ video {
   justify-content: space-between;
 }
 
+/* Carousel stuff */
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  border-width: 0.25rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(133 133 133 / var(--tw-border-opacity));
+  aspect-ratio: 0.77 / 1;
+}
+
+.carousel_item {
+  width: calc(100% / 6);
+  height: 100%;
+}
+
+#mobile_nav_buttons a {
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 18 18 / var(--tw-bg-opacity));
+  padding: 1rem;
+  text-align: center;
+  font-family: Futura, sans-serif;
+}
+
 @media (min-width: 1024px) {
+  .lg\:inline {
+    display: inline;
+  }
+
   .lg\:hidden {
     display: none;
   }
