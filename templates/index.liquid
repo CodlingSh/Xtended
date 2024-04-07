@@ -3,33 +3,30 @@
 {% assign first_4_articles = blogs["articles"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign first_4_interviews = blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 
-<div id="content_container">
-        <div id="carousel">
-            <div id="slider">
-            {% for article in carousel_articles %}
-                <div class="carousel_item">
-                    {% comment %} <img src="//xtended-test.myshopify.com/cdn/shop/{{ article.image | image.url }}"> {% endcomment %}
-                    <div class="carousel_item_image" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
-                    <div class="carousel_item_description">
-                        <p>{{ article.title }}</p>
-                        <p class="excerpt">{{ article.excerpt}}</p>
-                    </div>
+<div id="content_container" class="m-4">
+    <div id="carousel" class="carousel mb-4">
+        <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
+        {% for article in carousel_articles %}
+            <div class="carousel_item">
+                <div class="carousel_item_image h-[70%] w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
+                <div class="carousel_item_description">
+                    <p>{{ article.title }}</p>
+                    <p class="excerpt">{{ article.excerpt}}</p>
                 </div>
-            {% endfor %}
             </div>
+        {% endfor %}
         </div>
+    </div>
 
-        <div class="mobile">
-            <div id="mobile_nav_buttons">
-                {% for link in linklists.mobile-menu.links -%}
-                    {{ link.title | upcase | link_to: link.url }}
-                {%- endfor %}
-            </div>
-        </div>
+    <div id="mobile_nav_buttons" class="grid grid-cols-2 gap-4">
+        {% for link in linklists.mobile-menu.links -%}
+            {{ link.title | upcase | link_to: link.url }}
+        {%- endfor %}
+    </div>
 </div>
 
 
-<aside class="desktop">
+<aside class="hidden lg:inline">
     <h4>STORIES</h4>
     {% for article in first_4_articles %}
         <div class="aside_post">
