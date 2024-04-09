@@ -27,11 +27,11 @@
 }
 
 .email-box {
-    @apply font-futura text-center w-[65%] mx-auto h-8 rounded-lg mb-2 cursor-pointer;
+    @apply font-futura text-center w-[65%] mx-auto h-8 rounded-lg cursor-pointer;
 }
 
 .icons {
-    @apply flex justify-between h-11 w-40 mx-auto my-3;
+    @apply flex justify-between h-11 w-40 mx-auto my-4;
 }
 
 /* Carousel stuff */
