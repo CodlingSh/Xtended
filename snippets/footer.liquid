@@ -1,12 +1,12 @@
-<footer>
-    <a href="/">
-        <img id="logo" src="{{ 'x1.png' | asset_url }}" width=400/>
+<footer class="font-futura flex flex-col items-center bg-black text-center px-4 mt-auto">
+    <a href="/" class="my-4">
+        <img id="logo" class="w-[80%] h-auto mx-auto" src="{{ 'x1.png' | asset_url }}" width=400/>
     </a>
     <div>
-        <p>JOIN OUR EMAIL LIST</p>
+        <p class="mb-1">JOIN OUR EMAIL LIST</p>
         <form id="email_list_form">
-            <input type="email" id="email" name="email" placeholder="EMAIL">
-            <input type="submit" value="Join" class="green_btn">
+            <input type="email" id="email" name="email" class="email-box placeholder-[#27255c] !h-10 text-lg" placeholder="EMAIL">
+            <input type="submit" value="Join" class="bg-green text-[#000] px-2 rounded-md !h-10">
         </form>
     </div>
     <div class="icons">
