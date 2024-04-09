@@ -7,13 +7,13 @@
     <div id="carousel" class="carousel mb-4">
         <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
         {% for article in carousel_articles %}
-            <div class="carousel_item">
-                <div class="carousel_item_image h-[70%] w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
-                <div class="carousel_item_description">
-                    <p>{{ article.title }}</p>
-                    <p class="excerpt">{{ article.excerpt}}</p>
+            <a class="carousel_item" href="{{ article.url }}">
+                <div class="carousel_item_image h-[65%] w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
+                <div class="bg-black h-[35%] p-2">
+                    <p class="text-center text-lg font-futura text-green">{{ article.title }}</p>
+                    <div class="line-clamp-3"><p>{{ article.excerpt_or_content}}</p></div>
                 </div>
-            </div>
+            </a>
         {% endfor %}
         </div>
     </div>
