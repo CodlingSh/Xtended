@@ -1,16 +1,15 @@
-<h1 id="blog_title">{{ blog.title | capitalize }}</h1>
+<h1 class="text-lg text-center font-futura uppercase my-4">{{ blog.title }}</h1>
 
 {%- paginate blog.articles by 5 -%}
     {% for article in blog.articles %}
         <a href="{{ article.url }}" class="article_link">
             <div class="article_container" style="background-image: url('{{ article.image | image_url }}')">
-                <div class="article_info">
+                <div class="absolute bottom-0 w-full bg-black">
                     <h2>{{ article.title }}</h2>
-                    {% comment %} <div>{{ article.excerpt_or_content }}</div> {% endcomment %}
                 </div>
             </div>
         </a>
     {% endfor %}
 
-    {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+    <div id="paginate_controls" class="text-center font-futura mb-2 text-lg">{{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}</div>
 {%- endpaginate -%}
