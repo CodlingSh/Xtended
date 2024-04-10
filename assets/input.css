@@ -17,6 +17,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .search-box {
@@ -45,5 +46,34 @@
 }
 
 #mobile_nav_buttons a {
-    @apply font-futura bg-black p-4 text-center
+    @apply font-futura bg-black p-4 text-center;
+}
+
+#mobile_nav a {
+    @apply font-futura text-green text-xl py-3
+}
+
+/* Blog page stuff */
+.article_container {
+    @apply border-[0.25rem] border-light-grey w-[90%] overflow-hidden mx-auto mb-6 relative bg-cover bg-center;
+    aspect-ratio: 1.25 / 1;
+}
+
+/* Pagination stuff */
+#paginate_controls > *  {
+    @apply mx-1;
+}
+
+/* Contact form stuff */
+#contact_form {
+    @apply flex flex-col items-center w-[90%] mx-auto;
+}
+#contact_form > input:not([type="submit"]), #contact_form > textarea {
+    @apply border-green border mb-2 w-full bg-black px-2;
+}
+#contact_form > input:not([type="submit"]) {
+    @apply h-8;
+}
+#contact_form > textarea {
+    @apply py-1;
 }
