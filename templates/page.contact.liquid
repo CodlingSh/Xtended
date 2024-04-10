@@ -1,4 +1,26 @@
 <div id="article_container">
+    <div id="article_container" class="bg-[#000] py-4">
+        <article class="w-[90%] mx-auto">        
+            <h2 class="font-futura text-green text-center mb-2">{{ page.title | upcase }}</h1>
+            <h2 class="font-futura text-2xl text-center pb-2 mb-2">Send a message for business inquires</h2>
+            <div class="py-4 mb-4 border-y-2 border-green text-green">
+                <div class="w-[80%] mx-auto text-sm">{{ page.content }}</div>
+            </div>
+
+            {% form 'contact' %}
+            {{ form.errors | default_errors }}
+            <input type="text" name="contact[name]" id="name"  placeholder="Name"/>  
+            <input type="email" name="contact[email]" id="email"  placeholder="Your email"/>
+            <input type="text" name="contact[twitter]" id="twitter"  placeholder="@"/>
+            <textarea name="contact[body]" id="message" rows=5 placeholder="Message"></textarea>
+            <input type="submit" value="Send" class="self-start bg-green py-2 px-6 text-black font-futura text-lg rounded-md"/>
+            {% endform %}
+            
+        </article>
+    </div>
+</div>
+
+{% comment %} <div id="article_container">
     <article>        
         <div class="page_heading" style="margin-bottom: 0;">
             <h1 class="futura">{{ page.title | upcase }}</h1>
@@ -18,4 +40,4 @@
         {% endform %}        
         
     </article>
-</div>
+</div> {% endcomment %}
