@@ -45,12 +45,17 @@
     height: 100%;
 }
 
+/* Navigation stuff */
 #mobile_nav_buttons a {
     @apply font-futura bg-black p-4 text-center;
 }
 
 #mobile_nav a {
     @apply font-futura text-green text-xl py-3
+}
+
+#desktop_nav #left > a {
+    @apply text-green !font-futura;
 }
 
 /* Blog page stuff */
@@ -77,3 +82,11 @@
 #contact_form > textarea {
     @apply py-1;
 }
+
+/* Media query for "lg" screen */
+@media only screen and (min-width: 1280px) {
+    .carousel {
+        aspect-ratio: 1.26/1;
+    }
+}
+
