@@ -3,42 +3,59 @@
 {% assign first_4_articles = blogs["articles"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign first_4_interviews = blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 
-<div id="content_container" class="m-4">
-    <div id="carousel" class="carousel mb-4">
-        <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
-        {% for article in carousel_articles %}
-            <a class="carousel_item" href="{{ article.url }}">
-                <div class="carousel_item_image h-[65%] w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
-                <div class="bg-black h-[35%] p-2">
-                    <p class="text-center text-lg font-futura text-green">{{ article.title }}</p>
-                    <div class="line-clamp-3"><p>{{ article.excerpt_or_content}}</p></div>
-                </div>
+<div id="index_container" class="flex w-[80rem] mx-auto justify-between m-4 lg:my-12">
+    <div id="content_container" class="lg:w-[68%]">
+        <div id="carousel" class="carousel mb-4 lg:mb-12 lg:mx-8 !w-auto">
+            <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
+            {% for article in carousel_articles %}
+                <a class="carousel_item" href="{{ article.url }}">
+                    <div class="carousel_item_image h-[65%] w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
+                    <div class="bg-black h-[35%] p-2">
+                        <p class="text-center text-lg font-futura text-green">{{ article.title }}</p>
+                        <div class="line-clamp-3"><p>{{ article.excerpt_or_content}}</p></div>
+                    </div>
+                </a>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div id="mobile_nav_buttons" class="grid grid-cols-2 gap-4 lg:hidden">
+            {% for link in linklists.mobile-menu.links -%}
+                {{ link.title | upcase | link_to: link.url }}
+            {%- endfor %}
+        </div>
+
+        <div>
+            <h2 class="text-5xl font-futura pb-4 pl-4 border-b-8 border-green">XTENDED'S FAVORITES</h2>
+        </div>
+    </div>
+
+
+    <aside class="hidden lg:inline bg-black w-[30%]">
+        <h4 class="font-futura text-4xl mt-4 mx-6">STORIES</h4>
+        <span class="bg-green h-[0.125rem] w-auto mx-2 block mb-4"></span>
+        {% for article in first_4_articles %}
+            <a href="{{ article.url }}" class="aside_post flex">
+                <img class="m-4" src="{{ article.image | image_url: width: 125, height: 100 }}">
+                <div class="m-4 ml-0 line-clamp-3">
+                    <h3 class="font-futura text-lg">{{ article.title }}</h3>
+                    <p class="line-clamp-3">{{ article.excerpt_or_content }}</p>
+                </div> 
             </a>
         {% endfor %}
-        </div>
-    </div>
-
-    <div id="mobile_nav_buttons" class="grid grid-cols-2 gap-4">
-        {% for link in linklists.mobile-menu.links -%}
-            {{ link.title | upcase | link_to: link.url }}
-        {%- endfor %}
-    </div>
+        <h4 class="text-right font-futura text-4xl mt-4 mx-6">INTERVIEWS</h4>
+        <span class="bg-green h-[0.125rem] w-auto mx-2 block mb-4"></span>
+        {% for article in first_4_interviews %}
+            <a href="{{ article.url }}" class="aside_post flex">
+                <img class="m-4" src="{{ article.image | image_url: width: 125, height: 100 }}">
+                <div class="m-4 ml-0 line-clamp-3">
+                    <h3 class="font-futura text-lg">{{ article.title }}</h3>
+                    <p class="line-clamp-3">{{ article.excerpt_or_content }}</p>
+                </div> 
+            </a>
+        {% endfor %}
+        <h4 class="font-futura text-4xl mt-4 mx-6">INSTAGRAM</h4>
+        <span class="bg-green h-[0.125rem] w-auto mx-2 block mb-4"></span>
+    </aside>
 </div>
-
-
-<aside class="hidden lg:inline">
-    <h4>STORIES</h4>
-    {% for article in first_4_articles %}
-        <div class="aside_post">
-            <img src="{{ article.image | image_url: width: 150, height: 100 }}">
-        </div>
-    {% endfor %}
-    <h4 style="text-align: right;">INTERVIEWS</h4>
-    {% for article in first_4_interviews %}
-        <div class="aside_post">
-            <img src="{{ article.image | image_url: width: 150, height: 100 }}">
-        </div>
-    {% endfor %}
-</aside>
-
 
