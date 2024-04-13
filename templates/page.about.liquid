@@ -1,9 +1,7 @@
-<div id="article_container">
-    <div id="article_container" class="bg-[#000] py-4">
-        <article class="w-[90%] mx-auto">        
-            <h2 class="font-futura text-green text-center mb-2">{{ page.title | upcase }}</h1>
-            <h2 class="font-futura text-2xl text-center pb-2 mb-4 border-b-2 border-green">OUR STORY</h2>
-            {{ page.content }}
-        </article>
-    </div>
+<div id="article_container" class="w-full max-w-[60rem] mx-auto bg-[#000] py-4 lg:text-lg lg:py-12 lg:my-12">
+    <article class="w-[90%] mx-auto lg:w-[70%]">        
+        <h2 class="font-futura text-green text-center mb-2 lg:text-2xl lg:mb-4">{{ page.title | upcase }}</h1>
+        <h2 class="font-futura text-2xl text-center pb-2 mb-4 border-b-2 border-green lg:text-6xl lg:pb-4 lg:mb-12">OUR STORY</h2>
+        {{ page.content }}
+    </article>
 </div>

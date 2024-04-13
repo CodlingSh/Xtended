@@ -1,10 +1,10 @@
-<div id="article_container">
+<div id="article_container" class="w-full max-w-[60rem] mx-auto bg-[#000] py-4 lg:text-lg lg:py-12 lg:my-12">
     <div id="article_container" class="bg-[#000] py-4">
-        <article class="w-[90%] mx-auto">        
-            <h2 class="font-futura text-green text-center mb-2">{{ page.title | upcase }}</h1>
-            <h2 class="font-futura text-2xl text-center pb-2 mb-2">Send a message for business inquires</h2>
-            <div class="py-4 mb-4 border-y-2 border-green text-green">
-                <div class="w-[80%] mx-auto text-sm">{{ page.content }}</div>
+        <article class="w-[90%] mx-auto lg:w-[70%]">        
+            <h2 class="font-futura text-green text-center mb-2 lg:text-2xl lg:mb-4">{{ page.title | upcase }}</h1>
+            <h2 class="font-futura text-2xl text-center pb-2 mb-4 lg:text-6xl lg:pb-4">Send a message for business inquires</h2>
+            <div class="py-4 mb-4 border-y-2 border-green text-green lg:mb-12">
+                <div class="px-[10%] mx-auto text-center text-sm lg:text-2xl">{{ page.content }}</div>
             </div>
 
             {% form 'contact' %}
@@ -19,25 +19,3 @@
         </article>
     </div>
 </div>
-
-{% comment %} <div id="article_container">
-    <article>        
-        <div class="page_heading" style="margin-bottom: 0;">
-            <h1 class="futura">{{ page.title | upcase }}</h1>
-            <h2 class="futura">Send a message for business inquires</h2>
-        </div>
-        <div id="contact_message">
-            <p>{{ page.content }}</p>
-        </div>
-
-        {% form 'contact' %}
-            {{ form.errors | default_errors }}
-            <input type="text" name="contact[name]" id="name"  placeholder="Name"/>  
-            <input type="email" name="contact[email]" id="email"  placeholder="Your email"/>
-            <input type="text" name="contact[twitter]" id="twitter"  placeholder="@"/>
-            <textarea name="contact[body]" id="message" rows=5 placeholder="Message"></textarea>
-            <input type="submit" value="Send" />
-        {% endform %}        
-        
-    </article>
-</div> {% endcomment %}
