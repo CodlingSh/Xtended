@@ -3,9 +3,9 @@
 {% assign first_4_articles = blogs["articles"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign first_4_interviews = blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 
-<div id="index_container" class="flex w-[80rem] mx-auto justify-between m-4 lg:my-12">
-    <div id="content_container" class="lg:w-[68%]">
-        <div id="carousel" class="carousel mb-4 lg:mb-12 lg:mx-8 !w-auto">
+<div id="index_container" class="flex max-w-[80rem] mx-auto justify-between m-4 lg:my-12">
+    <div id="content_container" class="w-full px-4 lg:w-[68%] lg:px-0">
+        <div id="carousel" class="carousel mb-4 lg:mb-12 lg:mx-8 lg:!w-auto">
             <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
             {% for article in carousel_articles %}
                 <a class="carousel_item" href="{{ article.url }}">
@@ -19,15 +19,16 @@
             </div>
         </div>
 
-        <div id="mobile_nav_buttons" class="grid grid-cols-2 gap-4 lg:hidden">
+        <div id="mobile_nav_buttons" class="grid grid-cols-2 gap-4 2xs:text-lg xs:text-xl lg:hidden">
             {% for link in linklists.mobile-menu.links -%}
                 {{ link.title | upcase | link_to: link.url }}
             {%- endfor %}
         </div>
 
         <div>
-            <h2 class="text-5xl font-futura pb-4 pl-4 border-b-8 border-green">XTENDED'S FAVORITES</h2>
-        </div>
+            <h2 class="hidden lg:inline text-6xl font-futura pl-4">XTENDED'S FAVORITES</h2>
+            <div class="h-3 bg-green w-full mt-4">&nbsp;</div>
+        </div> 
     </div>
 
 
