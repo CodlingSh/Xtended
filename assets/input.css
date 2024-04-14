@@ -60,7 +60,7 @@
 
 /* Blog page stuff */
 .article_container {
-    @apply border-[0.25rem] border-light-grey w-[90%] overflow-hidden mx-auto mb-6 relative bg-cover bg-center;
+    @apply border-[0.25rem] border-light-grey w-[90%] overflow-hidden mx-auto mb-6 relative bg-cover bg-center lg:w-full;
     aspect-ratio: 1.25 / 1;
 }
 
