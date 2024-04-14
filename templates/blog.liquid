@@ -1,15 +1,19 @@
-<h1 class="text-lg text-center font-futura uppercase my-4">{{ blog.title }}</h1>
+<h1 class="text-lg text-center font-futura uppercase my-4 lg:text-8xl lg:my-12">{{ blog.title }}</h1>
 
-{%- paginate blog.articles by 5 -%}
-    {% for article in blog.articles %}
-        <a href="{{ article.url }}" class="article_link">
-            <div class="article_container" style="background-image: url('{{ article.image | image_url }}')">
-                <div class="absolute bottom-0 w-full bg-black">
-                    <h2>{{ article.title }}</h2>
+
+{%- paginate blog.articles by 6 -%}
+
+    <div class="inline mx-auto w-[90%] max-w-[72rem] mb-8 lg:grid lg:grid-cols-2 lg:gap-12 lg:mb-0">
+        {% for article in blog.articles %}
+            <a href="{{ article.url }}" class="article_link w-full">
+                <div class="article_container" style="background-image: url('{{ article.image | image_url }}')">
+                    <div class="absolute bottom-0 w-full bg-black">
+                        <h2>{{ article.title }}</h2>
+                    </div>
                 </div>
-            </div>
-        </a>
-    {% endfor %}
-
-    <div id="paginate_controls" class="text-center font-futura mb-2 text-lg">{{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}</div>
+            </a>
+        {% endfor %}
+    </div>
+    
+    <div id="paginate_controls" class="text-center font-futura mb-4 text-lg lg:text-3xl">{{ paginate | default_pagination: next: '>', previous: '<' }}</div>
 {%- endpaginate -%}
