@@ -10,14 +10,22 @@
         <div id="carousel" class="carousel mb-4 lg:mb-12 lg:mx-8 lg:!w-auto">
             <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
             {% for article in carousel_articles %}
-                <a class="carousel_item" href="{{ article.url }}">
-                    <div class="carousel_item_image h-[65%] w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
-                    <div class="bg-black h-[35%] p-2">
-                        <p class="text-center text-lg font-futura text-green">{{ article.title }}</p>
-                        <div class="line-clamp-3"><p>{{ article.excerpt_or_content}}</p></div>
+                <a class="carousel_item relative" href="{{ article.url }}">
+                    <div class="carousel_item_image h-full w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
+                    <div class="absolute flex flex-col justify-center bg-[#121212aa] h-full w-full z-40 top-0 p-2">
+                        <p class="text-lg font-futura text-green">{{ article.title }}</p>
+                        <div class="text-xl line-clamp-4">{{ article.excerpt_or_content}}</div>
                     </div>
                 </a>
             {% endfor %}
+            </div>
+            <div id="slider_points" class="absolute bottom-2 w-40 mx-auto flex justify-between z-50 left-1/2 transform -translate-x-1/2">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
 
@@ -27,8 +35,8 @@
             {%- endfor %}
         </div>
 
-        <div>
-            <h2 class="hidden lg:inline text-6xl font-futura pl-4">XTENDED'S FAVORITES</h2>
+        <div class="hidden lg:inline">
+            <h2 class="text-6xl font-futura pl-4">XTENDED'S FAVORITES</h2>
             <div class="h-3 bg-green w-full mt-4 mb-8"></div>
             <div class="grid grid-cols-2 gap-8 px-8">
                 {% for person in xtendeds_favorites %}
