@@ -10,22 +10,23 @@
         <div id="carousel" class="carousel mb-4 lg:mb-12 lg:mx-8 lg:!w-auto">
             <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
             {% for article in carousel_articles %}
-                <a class="carousel_item relative" href="{{ article.url }}">
+                <div class="carousel_item relative">
                     <div class="carousel_item_image h-full w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
-                    <div class="absolute flex flex-col justify-center bg-[#121212aa] h-full w-full z-40 top-0 p-2">
+                    <div class="absolute top-0 h-full w-full bg-[#121212aa]"></div>
+                    <a class="absolute flex flex-col justify-center z-40 top-[40%] p-2" href="{{ article.url }}">
                         <p class="text-lg font-futura text-green">{{ article.title }}</p>
                         <div class="text-xl line-clamp-4">{{ article.excerpt_or_content}}</div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             {% endfor %}
             </div>
-            <div id="slider_points" class="absolute bottom-2 w-40 mx-auto flex justify-between z-50 left-1/2 transform -translate-x-1/2">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div id="slider_dots" class="absolute bottom-2 flex justify-between z-50 left-1/2 transform -translate-x-1/2">
+                <div><div class="active"></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
             </div>
         </div>
 
