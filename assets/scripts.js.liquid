@@ -15,27 +15,37 @@ function toggleMobileNav() {
     mobileNav.classList.toggle("-translate-x-full");
 }
 
-function scrollCarousel() {
-    let carousel = document.getElementById("slider");
+(function carouselController() {
+    const carouselItems = document.querySelectorAll(".carousel_item");
+    const sliderDots = document.getElementById("slider_dots").children;
+    const timer = 7000;
+    let itemIndex = carouselItems.length - 1;
 
-    let itemWidth = carousel.children[1].getBoundingClientRect().width;
-    let transitionTime = window.getComputedStyle(carousel).getPropertyValue("transition").split(" ")[1].split("s")[0] * 1000;
-
-    carousel.style.transform = "translatex(-" + itemWidth +"px)";
-
-    carousel.addEventListener("transitionend", () => {
-        carousel.appendChild(carousel.children[0]);
-        carousel.style.transition = "none";
-        carousel.style.transform = "translatex(0px)";
+    function scrollCarousel() {
+        
+        function decrease() {
+            itemIndex -= 1;
+            if (itemIndex < 0) {
+                itemIndex = 5;
+                carouselItems.forEach((i) => {
+                    i.classList.remove("not_active");
+                })
+            }
+            return itemIndex;
+        }
+        
         setTimeout(() => {
-            carousel.style.transition = "";
-        }, 1000);
-    }, {once: true});
+            carouselItems[itemIndex].classList.add("not_active");
+            decrease();   
+            console.log("item Index: " + itemIndex);  
+        }, timer)
+    }
 
-    console.log("ligma");
-}
+    setInterval(() => {
+        scrollCarousel();
+    }, timer)
 
-setInterval(scrollCarousel, 5000);
+})();
 
 document.getElementById("burger").addEventListener("click", toggleMobileNav);
 document.getElementById("close_btn").addEventListener("click", toggleMobileNav);
