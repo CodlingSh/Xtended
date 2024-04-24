@@ -1,5 +1,5 @@
-{% assign group_articles = blogs["articles"].articles | concat: blogs["interviews"].articles %}
-{% assign carousel_articles = group_articles | sort: "published_at" | reverse | slice: 0, 6 %}
+{% assign carousel_articles = blogs["articles"].articles | concat: blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 6 %}
+{% comment %} {% assign carousel_articles = group_articles | sort: "published_at" | reverse | slice: 0, 6 %} {% endcomment %}
 {% assign first_4_articles = blogs["articles"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign first_4_interviews = blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign insta_links = carousel_articles | slice: 0, 2 %}
@@ -8,12 +8,12 @@
 <div id="index_container" class="flex max-w-[80rem] mx-auto justify-between m-4 lg:my-12">
     <div id="content_container" class="w-full px-4 lg:w-[68%] lg:px-0">
         <div id="carousel" class="carousel mb-4 lg:mb-12 lg:mx-8 lg:!w-auto">
-            <div id="slider" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
-            {% for article in carousel_articles %}
-                <div class="carousel_item relative">
+            <div id="slider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+            {% for article in carousel_articles reversed %}
+                <div class="carousel_item">
                     <div class="carousel_item_image h-full w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
                     <div class="absolute top-0 h-full w-full bg-[#121212aa]"></div>
-                    <a class="absolute flex flex-col justify-center z-40 top-[40%] p-2" href="{{ article.url }}">
+                    <a class="absolute flex flex-col justify-center top-[40%] p-2" href="{{ article.url }}">
                         <p class="text-lg font-futura text-green">{{ article.title }}</p>
                         <div class="text-xl line-clamp-4">{{ article.excerpt_or_content}}</div>
                     </a>
