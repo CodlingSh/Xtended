@@ -32,26 +32,43 @@
 }
 
 .icons {
-    @apply flex justify-between h-11 w-40 mx-auto my-4;
+    @apply flex justify-between h-11 w-[7.5rem] mx-auto my-4;
 }
 
 /* Carousel stuff */
 .carousel {
-    @apply border-[0.25rem] border-light-grey w-full overflow-hidden;
+    @apply relative border-[0.25rem] border-light-grey w-full /*overflow-hidden*/;
     aspect-ratio: 0.77 / 1;
 }
+
 .carousel_item {
-    width: calc(100% / 6);
-    height: 100%;
+    @apply h-full w-full absolute top-0 left-0;
+    pointer-events: auto;
+    transition: opacity 1000ms linear;
+}
+.not_active {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#slider_dots > div {
+    @apply w-10 h-10 flex justify-center items-center cursor-pointer;
+}
+#slider_dots > div > div {
+    @apply w-5 h-5 bg-white rounded-full scale-[0.7];
+    transition: transform 500ms;
+}
+#slider_dots > div > .active {
+    @apply bg-green scale-100
 }
 
 /* Navigation stuff */
 #mobile_nav_buttons a {
-    @apply font-futura bg-black p-4 text-center;
+    @apply font-futura bg-black text-center py-4;
 }
 
 #mobile_nav a {
-    @apply font-futura text-green text-xl py-3
+    @apply font-futura text-green text-xl py-3;
 }
 
 #desktop_nav #left > a {
@@ -67,6 +84,11 @@
 /* Pagination stuff */
 #paginate_controls > *  {
     @apply mx-1;
+}
+
+/* Article stuff */
+article > p > img {
+    @apply mx-auto my-4;
 }
 
 /* Contact form stuff */
