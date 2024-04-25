@@ -1,5 +1,4 @@
 {% assign carousel_articles = blogs["articles"].articles | concat: blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 6 %}
-{% comment %} {% assign carousel_articles = group_articles | sort: "published_at" | reverse | slice: 0, 6 %} {% endcomment %}
 {% assign first_4_articles = blogs["articles"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign first_4_interviews = blogs["interviews"].articles | sort: "published_at" | reverse | slice: 0, 4 %}
 {% assign insta_links = carousel_articles | slice: 0, 2 %}
@@ -20,13 +19,13 @@
                 </div>
             {% endfor %}
             </div>
-            <div id="slider_dots" class="absolute bottom-2 flex justify-between z-30 left-1/2 transform -translate-x-1/2">
+            <div id="slider_dots" class="absolute bottom-2 flex flex-row-reverse justify-between z-30 left-1/2 transform -translate-x-1/2">
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
                 <div><div class="active"></div></div>
-                <div><div></div></div>
-                <div><div></div></div>
-                <div><div></div></div>
-                <div><div></div></div>
-                <div><div></div></div>
             </div>
         </div>
 
