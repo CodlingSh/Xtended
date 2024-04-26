@@ -18,7 +18,6 @@ function toggleMobileNav() {
 (function carouselController() {
     const carouselItems = document.querySelectorAll(".carousel_item");
     const sliderDots = document.getElementById("slider_dots").children;
-    const timer = 7000;
     let itemIndex = carouselItems.length - 1;
 
     function scrollCarousel() {
@@ -27,25 +26,73 @@ function toggleMobileNav() {
             itemIndex -= 1;
             if (itemIndex < 0) {
                 itemIndex = 5;
-                carouselItems.forEach((i) => {
-                    i.classList.remove("not_active");
-                })
+                for (let i = 0; i < carouselItems.length; i++) {
+                    carouselItems[i].classList.remove("not_active");
+                }                
             }
             return itemIndex;
         }
         
-        setTimeout(() => {
-            carouselItems[itemIndex].classList.add("not_active");
-            decrease();   
-            console.log("item Index: " + itemIndex);  
-        }, timer)
+        carouselItems[itemIndex].classList.add("not_active");
+        sliderDots[itemIndex].children[0].classList.remove("active");
+        decrease();
+        sliderDots[itemIndex].children[0].classList.add("active");
+    };
+
+    
+    function startInterval() {
+        carouselInterval = setInterval(() => {
+            scrollCarousel();
+            console.log("item Index: " + itemIndex);
+        }, 2000);
+    };
+
+    function stopInterval() {
+        clearInterval(carouselInterval);
     }
 
-    setInterval(() => {
-        scrollCarousel();
-    }, timer)
+    // Start the interval on load
+    startInterval();
 
+    // Add click events to each sliderDot to bring the proper article up.
+    for (let i = 0; i < sliderDots.length; i++) {
+        sliderDots[i].addEventListener("click", () => {
+            stopInterval();
+            for (let j = 0; j < sliderDots.length; j++ ) {
+                carouselItems[j].classList.remove("not_active")
+            }
+            for (let k = sliderDots.length - 1; k > i; k--) {
+                carouselItems[k].classList.add("not_active");
+            }
+            sliderDots[itemIndex].children[0].classList.remove("active");
+            sliderDots[i].children[0].classList.add("active");
+            itemIndex = i;
+        })
+    };
 })();
+
+/*const carouselItems = document.querySelectorAll(".carousel_item");
+const sliderDots = document.getElementById("slider_dots").children;
+let itemIndex = carouselItems.length - 1;
+
+    function scrollCarousel() {
+        
+        function decrease() {
+            itemIndex -= 1;
+            if (itemIndex < 0) {
+                itemIndex = 5;
+                for (let i = 0; i < carouselItems.length; i++) {
+                    carouselItems[i].classList.remove("not_active");
+                }                
+            }
+            return itemIndex;
+        }
+        
+        carouselItems[itemIndex].classList.add("not_active");
+        sliderDots[itemIndex].children[0].classList.remove("active");
+        decrease();
+        sliderDots[itemIndex].children[0].classList.add("active");
+    };*/
 
 document.getElementById("burger").addEventListener("click", toggleMobileNav);
 document.getElementById("close_btn").addEventListener("click", toggleMobileNav);
