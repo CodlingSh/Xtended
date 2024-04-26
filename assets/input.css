@@ -44,7 +44,7 @@
 .carousel_item {
     @apply h-full w-full absolute top-0 left-0;
     pointer-events: auto;
-    transition: opacity 1000ms linear;
+    transition: opacity 400ms ease-in-out;
 }
 .not_active {
     opacity: 0;
