@@ -40,7 +40,7 @@
         <div class="w-[80rem] mx-auto flex justify-between items-center">
             <div id="left" class="flex w-[40rem] justify-between">
                 {% for link in linklists.desktop.links | slice: 0, 2 %}
-                    {{ link.title | upcase | link_to: link.url }}
+                    <a href="{{ link.url }}">{{ link.title | upcase }}</a>
                 {% endfor %}
             </div>
             <div id="right" class="text-right w-fit">
