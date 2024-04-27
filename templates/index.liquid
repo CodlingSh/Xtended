@@ -12,9 +12,9 @@
                 <div class="carousel_item">
                     <div class="carousel_item_image h-full w-full bg-center bg-cover" style="background-image: url('{{ article.image | image_url: width: 450 }}');"></div>
                     <div class="absolute top-0 h-full w-full bg-[#121212aa]"></div>
-                    <a class="absolute flex flex-col justify-center top-[40%] p-2" href="{{ article.url }}">
-                        <p class="text-lg font-futura text-green">{{ article.title }}</p>
-                        <div class="text-xl line-clamp-4">{{ article.excerpt_or_content}}</div>
+                    <a class="absolute flex flex-col justify-center top-[40%] p-2 lg:px-16" href="{{ article.url }}">
+                        <p class="text-lg font-futura text-green lg:text-4xl">{{ article.title }}</p>
+                        <div class="text-xl line-clamp-4 lg:text-4xl">{{ article.excerpt_or_content}}</div>
                     </a>
                 </div>
             {% endfor %}
