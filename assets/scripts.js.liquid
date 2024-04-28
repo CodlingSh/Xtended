@@ -44,7 +44,7 @@ function toggleMobileNav() {
         carouselInterval = setInterval(() => {
             scrollCarousel();
             console.log("item Index: " + itemIndex);
-        }, 2000);
+        }, 7000);
     };
 
     function stopInterval() {
@@ -61,12 +61,13 @@ function toggleMobileNav() {
             for (let j = 0; j < sliderDots.length; j++ ) {
                 carouselItems[j].classList.remove("not_active")
             }
-            for (let k = sliderDots.length - 1; k > i; k--) {
-                carouselItems[k].classList.add("not_active");
+            for (let j = sliderDots.length - 1; j > i; j--) {
+                carouselItems[j].classList.add("not_active");
             }
             sliderDots[itemIndex].children[0].classList.remove("active");
             sliderDots[i].children[0].classList.add("active");
             itemIndex = i;
+            setTimeout(startInterval(), 1000);
         })
     };
 })();

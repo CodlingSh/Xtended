@@ -44,7 +44,7 @@
 .carousel_item {
     @apply h-full w-full absolute top-0 left-0;
     pointer-events: auto;
-    transition: opacity 400ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
 }
 .not_active {
     opacity: 0;
@@ -72,13 +72,13 @@
 }
 
 #desktop_nav #left > a {
-    @apply text-green !font-futura;
+    @apply text-green !font-futura hover:text-white;
 }
 
 /* Blog page stuff */
 .article_container {
     @apply border-[0.25rem] border-light-grey w-[90%] overflow-hidden mx-auto mb-6 relative bg-cover bg-center lg:w-full;
-    aspect-ratio: 1.25 / 1;
+    aspect-ratio: 4 / 3;
 }
 
 /* Pagination stuff */
