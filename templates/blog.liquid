@@ -3,13 +3,13 @@
 
 {%- paginate blog.articles by 6 -%}
 
-    <div class="inline mx-auto w-[90%] max-w-[72rem] mb-8 lg:grid lg:grid-cols-2 lg:gap-12 lg:mb-0">
+    <div class="inline mx-auto w-[90%] max-w-[76em] mb-8 lg:grid lg:grid-cols-2 lg:gap-12 lg:mb-0">
         {% for article in blog.articles %}
             <a href="{{ article.url }}" class="article_link w-full">
                 <div class="article_container" style="background-image: url('{{ article.image | image_url }}')">
-                    <div class="absolute h-full w-full lg:font-bold bg-[#121212aa]">
-                        <h2 class="absolute bottom-[40%] lg:mx-8 lg:text-2xl">{{ article.title }}</h2>
-                        <h2 class="absolute w-full bottom-4 text-center lg:text-lg text-green">{{ article.published_at | date: '%B %d, %Y' }}</h2>
+                    <div class="absolute flex flex-col justify-end h-full w-full bg-[#121212aa]">
+                        <h2 class="mx-4 font-futura lg:mx-8 lg:text-4xl">{{ article.title }}</h2>
+                        <h2 class="w-full text-center mb-2 mt-8 lg:text-lg lg:font-bold text-green">{{ article.published_at | date: '%B %d, %Y' }}</h2>                        
                     </div>
                 </div>
             </a>
