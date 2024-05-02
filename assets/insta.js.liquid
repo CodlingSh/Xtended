@@ -1,0 +1,8 @@
+async function instaGrab() {
+    let accessToken = "IGQWRQZADRBWTZAzNDRCX1VVZAjNnX1h5QmxjZAkxrdHkwU1FFWDhhTTYycGxmSHY3R0s3SF96T0RVTll5MFE3cmxiMEJrNFlsVjVkakw2WDJSUm81czlzS0ZA6ZA1E3YUhNalVwT2tDaU9OU0tJMHg3eHBpS3o1LUxRQzgZD";
+    let posts = await fetch(`https://graph.instagram.com/me/media?fields=id,caption&access_token=${accessToken}`)
+
+    console.log(posts.json());
+}
+
+window.addEventListener("DOMContentLoaded", instaGrab);
