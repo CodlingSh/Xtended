@@ -75,13 +75,13 @@
         {% endfor %}
         <h4 class="font-futura text-4xl mt-4 mx-6">INSTAGRAM</h4>
         <span class="bg-green h-[0.125rem] w-auto mx-2 block mb-4"></span>
-        {% for article in insta_links %}
-            <a href="{{ article.metafields.custom.instagram_url }}" class="aside_post flex justify-between">
+        {% comment %} Placeholders for the 4 latest instagram posts {% endcomment %}
+        {% for i in (1..4) %}
+            <a href="https://www.xtended.com" class="instagram_post aside_post flex justify-between">
                 <div class="m-4 mr-0 line-clamp-3">
-                    <h3 class="font-futura text-lg">{{ article.title }}</h3>
-                    <p class="line-clamp-3">{{ article.excerpt_or_content }}</p>
+                    <p class="line-clamp-3"></p>
                 </div> 
-                <img class="m-4" src="{{ article.image | image_url: width: 125, height: 100 }}">
+                <img class="m-4 object-cover w-[100px] h-[100px]" src="{{ 'blur.webp' | asset_url }}" width=100 height=100>
             </a>
         {% endfor %}
     </aside>
