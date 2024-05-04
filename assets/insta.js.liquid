@@ -1,8 +1,41 @@
 async function instaGrab() {
     let accessToken = "IGQWRQZADRBWTZAzNDRCX1VVZAjNnX1h5QmxjZAkxrdHkwU1FFWDhhTTYycGxmSHY3R0s3SF96T0RVTll5MFE3cmxiMEJrNFlsVjVkakw2WDJSUm81czlzS0ZA6ZA1E3YUhNalVwT2tDaU9OU0tJMHg3eHBpS3o1LUxRQzgZD";
-    let posts = await fetch(`https://graph.instagram.com/me/media?fields=id,caption&access_token=${accessToken}`)
+    // let posts = await fetch(`https://graph.instagram.com/me/media?fields=id,caption&access_token=${accessToken}`)
 
-    console.log(posts.json());
+    // console.log(posts.json());
+
+    try {
+        const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,caption,media_url,thumbnail_url,permalink&access_token=${accessToken}`);
+        const postContainers = document.querySelectorAll(".instagram_post");
+
+        if (!response.ok) {
+            throw new Error("Could not fetch resource");
+        }
+
+        const data = await response.json();
+        console.log(data.data);
+        console.log(postContainers);
+
+        for (let i = 0; i < postContainers.length; i++) {
+            postContainers[i].href = data.data[i].permalink;
+            postContainers[i].querySelector("div > p").innerHTML = data.data[i].caption;
+
+            // Check if media type is a video and return the thumbnail if so
+            if (data.data[i].media_type === "VIDEO") {
+                postContainers[i].querySelector("img").src = data.data[i].thumbnail_url;
+            }
+            else {
+                postContainers[i].querySelector("img").src = data.data[i].media_url;
+            }
+        }
+        // postContainers.forEach((i) => {
+        //     console.log(i.href);
+        // })
+
+    }
+    catch(error) {
+        console.error(error);
+    }
 }
 
 window.addEventListener("DOMContentLoaded", instaGrab);
