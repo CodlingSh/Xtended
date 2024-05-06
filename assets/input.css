@@ -73,6 +73,7 @@
 
 #desktop_nav #left > a {
     @apply text-green !font-futura hover:text-white;
+    transition: 300ms;
 }
 
 /* Blog page stuff */
